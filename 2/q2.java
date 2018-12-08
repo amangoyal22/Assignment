@@ -1,5 +1,18 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.util.Scanner;
-import java.util.*;
+import java.io.FileWriter; 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 
 class user 
 { 
@@ -9,6 +22,14 @@ class user
     String courses[];
   
     // Constructor 
+    public String writeString(){
+       String l = "";int  j;
+        for(j =0;j<this.courses.length-1;j++){
+            l+=this.courses[j]+",";
+       }
+        l+=this.courses[j++];
+       return this.age+"%"+this.roll+"%"+this.name+"%"+l+"%"+this.address; 
+    }
     public user(int age,int roll, String name, 
                                String address,String courses[]) 
     { 
@@ -157,11 +178,48 @@ public class q2 {
     }
     
     public static void Save(ArrayList a){
-        System.out.print("working.....");
-    }
+        System.out.print("working.....\n");
+    try
+        { 
+        //String tmp = a.toString();
+        PrintWriter pw = new PrintWriter(new FileOutputStream("t.txt"));
+        for(int i = 0;i<a.size();i++){
+        pw.write(((user)a.get(i)).writeString()+"\n");
+          }
+        pw.close();
+        }
+        catch (FileNotFoundException fe)
+        {
+            System.out.println("File not found");
+        }
     
+    }
+    public static ArrayList upd(ArrayList a){
+        BufferedReader reader;
+       // ArrayList<user> a = new ArrayList();    
+               // BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader("t.txt"));
+			String line = reader.readLine();
+			while (line != null) {
+				String x[] = line.split("%");
+                                user n;
+                                int xx = Integer.parseInt(x[0]);
+                                int xxx = Integer.parseInt(x[1]);
+                            n = new user(xx,xxx,x[2],x[4],x[3].split(","));
+                                a.add(n);
+                                //System.out.println(line);
+				line = reader.readLine();
+			}
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        return a;
+    }
     public static ArrayList Add(ArrayList a){
     	try {
+        a=upd(a);
         Scanner sc = new Scanner(System.in);
         System.out.println("Roll number: ");
     	int r = sc.nextInt();
