@@ -9,4 +9,8 @@ public class AppController {
     public String welcome(){
         return "welcome";
     }
+    @GetMapping(path="/login")
+    public String otp(){
+        return "login";
+    }
 }

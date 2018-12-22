@@ -10,16 +10,13 @@
 
 <h1>Hello world</h1>
 <ul>
-    <li><a href="login">OTP WORK</a></li>
-    <li><a href="signup.jsp">Signup</a></li>
+    <li><a href="login.jsp">Login</a></li>
+    <li><a href="">Signup</a></li>
 </ul>
 <div class="formSignup">
-    <form method="POST" action="add">
-        <input type="hidden" name="id"/>
-        <input type="text" name="name"/>
+    <form method="POST" action="gOTP">
         <input type="text" name="phone"/>
-        <input type="password" name="password"/>
-        <input type="Submit" value="Register"/>
+        <input type="Submit" value="generateOTP"/>
     </form>
 </div>
 </body>

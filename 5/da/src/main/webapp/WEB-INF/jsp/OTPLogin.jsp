@@ -4,21 +4,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Welcome to Site</title>
+    <title>Login With OTP</title>
 </head>
 <body>
-
-<h1>Hello world</h1>
-<ul>
-    <li><a href="login">OTP WORK</a></li>
-    <li><a href="signup.jsp">Signup</a></li>
-</ul>
 <div class="formSignup">
-    <form method="POST" action="add">
-        <input type="hidden" name="id"/>
-        <input type="text" name="name"/>
+    <form method="POST" action="loginotp">
         <input type="text" name="phone"/>
-        <input type="password" name="password"/>
+        <input type="password" name="otp"/>
         <input type="Submit" value="Register"/>
     </form>
 </div>

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 public class MainController {
 	@Autowired // This means to get the bean called userRepository
 	private UserRepository userRepository;
+	@Autowired // This means to get the bean called OTP Repository
+	private OtpRepositry ORepository;
 
 
 
@@ -18,22 +20,42 @@ public class MainController {
 		return "aaaa"+name;
 	}
 
-	@PostMapping(path="/add") // Map ONLY GET Requests
-	public @ResponseBody
-    String addNewUser (@RequestParam String name, @RequestParam String phone, @RequestParam String password) {
+	@PostMapping(path="/add") // Map ONLY POST Requests
+	public String addNewUser (@RequestParam String name, @RequestParam String phone, @RequestParam String password) {
 		User n = new User();
 		n.setName(name);
 		n.setPhone(phone);
 		n.setPassword(password);
 		userRepository.save(n);
-		return "Saved";
+		return "welcome";
 	}
 
+	@PostMapping(path="/gOTP") // Map ONLY POST Requests
+	public String addNewUser (@RequestParam String phone) {
+		uotp n = new uotp();
+		n.phone = phone;
+		n.otp = n.otpgene();
+		ORepository.save(n);
+		return "OTPLogin";
+	}
 
+	@PostMapping(path="/loginotp") // Map ONLY POST Requests
+	public @ResponseBody
+	String loginOtp (@RequestParam String phone,@RequestParam String otp) {
+		uotp n = new uotp();
+		n.phone = phone;
+		n.otp = otp;
+
+		for (uotp x:ORepository.findAll()) {
+			if(x.phone.equals(phone) && x.otp.equals(otp)){
+				return "successLogin";
+			}
+		};
+		return "Fail";
+	}
 	@GetMapping(path="/all")
 	public @ResponseBody
     Iterable<User> getAllUsers() {
-		// This returns a JSON or XML with the users
 		return userRepository.findAll();
 	}
 }

@@ -7,12 +7,6 @@
     <title>Welcome to Site</title>
 </head>
 <body>
-
-<h1>Hello world</h1>
-<ul>
-    <li><a href="login">OTP WORK</a></li>
-    <li><a href="signup.jsp">Signup</a></li>
-</ul>
 <div class="formSignup">
     <form method="POST" action="add">
         <input type="hidden" name="id"/>
