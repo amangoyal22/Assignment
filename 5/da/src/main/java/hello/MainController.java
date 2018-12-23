@@ -5,6 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 @Controller    // This means that this class is a Controller
 @RequestMapping(path="/") // This means URL's start with /demo (after Application path)
 public class MainController {
@@ -27,6 +33,14 @@ public class MainController {
 		n.setName(name);
 		n.setPhone(phone);
 		n.setPassword(password);
+		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+		Date date = new Date();
+		n.setT(Time.valueOf(formatter.format(date)));
+
+		SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+	//	Date date = new Date();
+		n.setD(java.sql.Date.valueOf(formatter1.format(date)));
+
 		userRepository.save(n);
 		return "welcome";
 	}

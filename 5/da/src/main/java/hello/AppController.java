@@ -9,6 +9,10 @@ public class AppController {
     public String welcome(){
         return "welcome";
     }
+    @GetMapping(path="/signup")
+    public String signup(){
+        return "signup";
+    }
     @GetMapping(path="/login")
     public String otp(){
         return "login";

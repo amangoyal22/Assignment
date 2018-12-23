@@ -11,7 +11,7 @@
 <h1>Hello world</h1>
 <ul>
     <li><a href="login">OTP WORK</a></li>
-    <li><a href="signup.jsp">Signup</a></li>
+    <li><a href="signup">Signup</a></li>
 </ul>
 </body>
 </html>
