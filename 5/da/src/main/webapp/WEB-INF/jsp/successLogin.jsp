@@ -7,6 +7,6 @@
     <title>Welcome to Site</title>
 </head>
 <body>
-Welcome<br><a href="welcome.jsp">Logout</a>
+Welcome ${userp}<br><a href="Welcome">Logout</a>
 </body>
 </html>

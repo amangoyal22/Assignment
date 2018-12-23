@@ -2,6 +2,7 @@ package hello;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller    // This means that this class is a Controller
@@ -40,14 +41,14 @@ public class MainController {
 	}
 
 	@PostMapping(path="/loginotp") // Map ONLY POST Requests
-	public @ResponseBody
-	String loginOtp (@RequestParam String phone,@RequestParam String otp) {
+	public 	String loginOtp (@RequestParam String phone, @RequestParam String otp, Model model) {
 		uotp n = new uotp();
 		n.phone = phone;
 		n.otp = otp;
 
 		for (uotp x:ORepository.findAll()) {
 			if(x.phone.equals(phone) && x.otp.equals(otp)){
+				model.addAttribute("userp",phone);
 				return "successLogin";
 			}
 		};

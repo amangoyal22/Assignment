@@ -15,7 +15,7 @@
 </ul>
 <div class="formSignup">
     <form method="POST" action="gOTP">
-        <input type="text" name="phone"/>
+        <input type="text" name="phone"placeholder="phone" min="10"  max="10"/>
         <input type="Submit" value="generateOTP"/>
     </form>
 </div>

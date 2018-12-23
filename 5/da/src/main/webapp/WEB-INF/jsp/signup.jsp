@@ -9,10 +9,10 @@
 <body>
 <div class="formSignup">
     <form method="POST" action="add">
-        <input type="hidden" name="id"/>
-        <input type="text" name="name"/>
-        <input type="text" name="phone"/>
-        <input type="password" name="password"/>
+        <input type="hidden" name="id" />
+        <input type="text" name="name" placeholder="Name"/>
+        <input type="text" name="phone" placeholder="phone"/>
+        <input type="password" name="password" placeholder="Password"/>
         <input type="Submit" value="Register"/>
     </form>
 </div>

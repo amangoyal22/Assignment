@@ -9,8 +9,8 @@
 <body>
 <div class="formSignup">
     <form method="POST" action="loginotp">
-        <input type="text" name="phone"/>
-        <input type="password" name="otp"/>
+        <input type="text" name="phone" placeholder="phone"/>
+        <input type="password" name="otp" placeholder="OTPP"/>
         <input type="Submit" value="Register"/>
     </form>
 </div>

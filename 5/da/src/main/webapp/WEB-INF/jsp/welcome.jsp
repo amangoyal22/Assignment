@@ -13,14 +13,5 @@
     <li><a href="login">OTP WORK</a></li>
     <li><a href="signup.jsp">Signup</a></li>
 </ul>
-<div class="formSignup">
-    <form method="POST" action="add">
-        <input type="hidden" name="id"/>
-        <input type="text" name="name"/>
-        <input type="text" name="phone"/>
-        <input type="password" name="password"/>
-        <input type="Submit" value="Register"/>
-    </form>
-</div>
 </body>
 </html>
